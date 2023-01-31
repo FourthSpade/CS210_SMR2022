@@ -1,0 +1,36 @@
+// WARNING: Gradle is deprecated for removal.
+
+plugins {
+	id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+	options.release = 17
+}
+
+version = "22.1.0"
+
+dependencies {
+	// Unit Tests
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+
+	// Module 7
+	implementation 'jakarta.json:jakarta.json-api:2.0.1'
+	implementation 'org.glassfish:jakarta.json:2.0.1'
+}
+
+test {
+	useJUnitPlatform()
+
+	testLogging {
+		showExceptions true
+		showCauses true
+		showStackTraces false
+		exceptionFormat 'full'
+		events 'passed', 'failed', 'standardOut', 'standardError'
+	}
+}
